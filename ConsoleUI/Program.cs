@@ -17,22 +17,28 @@ namespace ConsoleUI
 
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties: Year, Make, and Model
-             * Set the defaults of the properties to something generic in the Vehicle class
-             * Vehicle class shall have an abstract method called DriveAbstract with no implementation.
-             * Vehicle class shall have a virtual method called DriveVirtual with a base implementation.
-             */
 
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distinct property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
 
             // Create a list of Vehicle called vehicles
+
+            var vehicles = new List<Vehicle>();
+   
+            
+            var car1 = new Car();
+            car1.DriveVirtual();
+            car1.DriveAbstract();
+            car1.Make = "Kia";
+            car1.Model = "Forte";
+            car1.Year = 2020;
+            var motorcycle1 = new Motorcycle();
+            motorcycle1.DriveAbstract();
+            motorcycle1.DriveVirtual();
+            motorcycle1.Make = "Suzuki";
+            motorcycle1.Model = "GSX25OR ABS";
+            motorcycle1.Year = 2024;
+
+            Vehicle genericCar = new Car();
+            Vehicle genericMotorcycle = new Motorcycle();
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
@@ -40,15 +46,38 @@ namespace ConsoleUI
              * Set the properties values with object initializer syntax
              */
 
+
+
+
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate through the list and display each of the properties
              */
 
+            vehicles.Add(car1);
+            vehicles.Add(motorcycle1);
+            vehicles.Add(genericCar);
+            vehicles.Add(genericMotorcycle);
+
+
+
+
             // Call each of the drive methods for one car and one motorcycle
+            motorcycle1.ListOfProperties();
+            car1.ListOfProperties();
+            genericCar.ListOfProperties();
+            genericMotorcycle.ListOfProperties();
+            motorcycle1.DriveAbstract();
+            motorcycle1.DriveVirtual();
+            car1.DriveVirtual();
+            car1.DriveAbstract();
+
 
             #endregion            
             Console.ReadLine();
+
+
+
         }
     }
 }
